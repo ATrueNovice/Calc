@@ -14,11 +14,10 @@ class ViewController: UIViewController {
     //Textlabel
     @IBOutlet weak var outputLbl: UILabel!
     
-    
     //Links the button to the audio player that plays the sound.
     var btnSound = AVAudioPlayer()
     
-    
+    var zero = "0"
     //Sets the cases for all logic operators.
     enum Operation: String {
         case Divide = "/"
@@ -26,6 +25,7 @@ class ViewController: UIViewController {
         case Subtract = "-"
         case Add = "+"
         case Empty = "Empty"
+        case Zero = "0.0"
     }
     
     
@@ -43,8 +43,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        //SOUND
         //Every sound file has a path to whatever folder it is housed. Apps are housed in the Bundle that downloads
         let path = Bundle.main.path(forResource: "btn", ofType: "wav")
         let soundURL = URL(fileURLWithPath: path!)
@@ -74,6 +74,8 @@ class ViewController: UIViewController {
         //Puts the numbers on the label from runningNumber
         outputLbl.text = runningNumber
     }
+    
+    
     //Sets what happens when you the corresponding button is pressed
     @IBAction func onDividePressed(_sender: AnyObject) {
         processOperation(operation: .Divide)
@@ -93,6 +95,12 @@ class ViewController: UIViewController {
         processOperation(operation: currentOperation)
         
     }
+    
+    @IBAction func onClearPressed(_sender: AnyObject) {
+        processOperation(operation: .Zero)
+        
+    }
+    
     
         //Stop the sound so that the app can start a new instance of the sound.
         func playSound(){
@@ -122,7 +130,11 @@ class ViewController: UIViewController {
                     result = "\(Double(leftVarStr)! - Double(rightVarStr)!)"
                 } else if currentOperation == Operation.Add {
                     result = "\(Double(leftVarStr)! + Double(rightVarStr)!)"
+                } else if currentOperation == Operation.Zero {
+                    result = zero
+                    
                 }
+                
                 
                 //Sets the Output to the label
                 leftVarStr = result

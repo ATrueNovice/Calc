@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8FC9600EA01F375DC30A1404D77DB052CA8D0A8F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8FC9600EA01F375DC30A1404D77DB052CA8D0A8F" : 9223372036854775807,
+    "E2E394350A6618241E0080CF73BF7808F766D11D" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6A0156CE-E874-4A98-B619-D2BD2A625DB7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8FC9600EA01F375DC30A1404D77DB052CA8D0A8F" : "retroCalc\/",
+    "E2E394350A6618241E0080CF73BF7808F766D11D" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "retroCalc",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "retroCalc.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ATrueNovice\/Calc.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8FC9600EA01F375DC30A1404D77DB052CA8D0A8F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ATrueNovice\/MiraclePills.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E2E394350A6618241E0080CF73BF7808F766D11D"
+    }
+  ]
+}
