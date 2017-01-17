@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var btnSound = AVAudioPlayer()
     
     var zero = "0"
+
     //Sets the cases for all logic operators.
     enum Operation: String {
         case Divide = "/"
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
         case Subtract = "-"
         case Add = "+"
         case Empty = "Empty"
-        case Zero = "0.0"
+        case Zero = ""
     }
     
     
@@ -89,7 +90,7 @@ class ViewController: UIViewController {
     }
     @IBAction func onAddPressed(_sender: AnyObject) {
         processOperation(operation: .Add)
-        
+
     }
     @IBAction func onEqualPressed(_sender: AnyObject) {
         processOperation(operation: currentOperation)
@@ -97,11 +98,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onClearPressed(_sender: AnyObject) {
-        processOperation(operation: .Zero)
-        
+         processOperation(operation: .Zero)
+
     }
     
-    
+
         //Stop the sound so that the app can start a new instance of the sound.
         func playSound(){
         if btnSound.isPlaying {
@@ -131,8 +132,9 @@ class ViewController: UIViewController {
                 } else if currentOperation == Operation.Add {
                     result = "\(Double(leftVarStr)! + Double(rightVarStr)!)"
                 } else if currentOperation == Operation.Zero {
-                    result = zero
-                    
+                    leftVarStr = runningNumber
+                    runningNumber = ""
+
                 }
                 
                 
