@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     
     //Links the button to the audio player that plays the sound.
     var btnSound = AVAudioPlayer()
-    
     var zero = "0"
 
     //Sets the cases for all logic operators.
@@ -26,7 +25,6 @@ class ViewController: UIViewController {
         case Subtract = "-"
         case Add = "+"
         case Empty = "Empty"
-        case Zero = ""
     }
     
     
@@ -63,6 +61,7 @@ class ViewController: UIViewController {
         catch let err as NSError {
             print(err.debugDescription)
         }
+        outputLbl.text = "0"
     }
     
         //Connects the buttons to the sound. PlaySound() calls the audio file from the path
@@ -97,8 +96,13 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func onClearPressed(_sender: AnyObject) {
-         processOperation(operation: .Zero)
+    @IBAction func onClearPressed(_sender: UIButton) {
+        leftVarStr = ""
+        rightVarStr = ""
+        runningNumber = ""
+        result = ""
+        outputLbl.text = "0"
+        currentOperation = .Empty
 
     }
     
@@ -121,8 +125,7 @@ class ViewController: UIViewController {
             if runningNumber != "" {
                 rightVarStr = runningNumber
                 runningNumber = ""
-                
-                //Determins what happens when operater buttnons are pressed
+
                 if currentOperation == Operation.Multiply {
                     result = "\(Double(leftVarStr)! * Double(rightVarStr)!)"
                 } else if currentOperation == Operation.Divide {
@@ -131,16 +134,14 @@ class ViewController: UIViewController {
                     result = "\(Double(leftVarStr)! - Double(rightVarStr)!)"
                 } else if currentOperation == Operation.Add {
                     result = "\(Double(leftVarStr)! + Double(rightVarStr)!)"
-                } else if currentOperation == Operation.Zero {
-                    leftVarStr = runningNumber
-                    runningNumber = ""
-
+                } else if currentOperation == Operation.Empty {
+                    leftVarStr = "\(0)"; rightVarStr = "\(0)"; result = "\(0)"
                 }
-                
-                
+
                 //Sets the Output to the label
-                leftVarStr = result
                 outputLbl.text = result
+                leftVarStr = result
+                currentOperation = operation
             }
             //If there is nothing pressed or the format is wrong this will catch the error
             currentOperation = operation
@@ -151,5 +152,4 @@ class ViewController: UIViewController {
             currentOperation = operation
         }
     }
-        
 }
